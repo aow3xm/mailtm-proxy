@@ -1,0 +1,67 @@
+{
+  "name": "mailtm-proxy",
+  "version": "1.1.0",
+  "description": "TypeScript library for interacting with temporary email services like mail.tm and mail.gw with proxy support",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.mjs",
+    "dev": "rollup -c rollup.config.mjs && node dist/esm/index.js",
+    "start": "node dist/esm/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "biome format --write ./src",
+    "lint": "biome lint --write ./src",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [
+    "mail",
+    "mail.tm",
+    "mail.gw",
+    "temp-mail",
+    "disposable-email",
+    "temporary-email",
+    "proxy",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aow3xm/mailtm-proxy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aow3xm/mailtm-proxy/issues"
+  },
+  "homepage": "https://github.com/aow3xm/mailtm-proxy#readme",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@rollup/plugin-commonjs": "^28.0.5",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "rollup": "^4.43.0",
+    "rollup-plugin-dts": "^6.2.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "https-proxy-agent": "^7.0.6"
+  }
+}
